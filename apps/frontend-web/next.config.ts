@@ -1,0 +1,26 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.r2.cloudflarestorage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/api/backend/:path*",
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/:path*`,
+      },
+    ];
+  },
+};
+
+export default nextConfig;
