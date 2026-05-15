@@ -1,11 +1,12 @@
 "use client";
 
-import { Camera, Chrome } from "lucide-react";
+import { Camera} from "lucide-react";
 import Link from "next/link";
 
 export default function LoginPage() {
   const handleGoogleLogin = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/google`;
+    const googleAuthUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/google`;
+    window.location.href = googleAuthUrl;
   };
 
   return (
