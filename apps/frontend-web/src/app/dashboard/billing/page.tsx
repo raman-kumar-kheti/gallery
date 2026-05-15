@@ -179,8 +179,8 @@ export default function BillingPage() {
       <div className="glass-card p-5 flex items-start gap-3">
         <Zap className="w-4 h-4 text-gallery-400 mt-0.5 flex-shrink-0" />
         <div className="text-sm text-gray-400">
-          <p className="font-medium text-white mb-1">Powered by Razorpay</p>
-          <p>All payments are securely processed via Razorpay. Subscriptions auto-renew monthly. Cancel anytime.</p>
+          <p className="font-medium text-white mb-1">Secure Payments</p>
+          <p>All payments are securely processed and encrypted. Subscriptions auto-renew monthly. Cancel anytime.</p>
         </div>
       </div>
     </div>

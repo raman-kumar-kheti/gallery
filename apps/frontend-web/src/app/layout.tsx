@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     template: "%s | Gallery",
   },
   description:
-    "Instantly find your photos from any event using AI face recognition. Scan a QR code, upload a selfie, get your photos.",
-  keywords: ["event photos", "face recognition", "AI gallery", "wedding photos", "event photography"],
+    "Instantly find your photos from any event using AI. Scan a QR code, upload a selfie, get your photos.",
+  keywords: ["event photos", "photo delivery", "AI gallery", "wedding photos", "event photography"],
   openGraph: {
     title: "Gallery — AI-Powered Event Photos",
-    description: "Find your event photos in seconds using AI face search.",
+    description: "Find your event photos in seconds using AI photo search.",
     type: "website",
   },
 };

@@ -44,7 +44,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto text-center relative animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gallery-600/15 border border-gallery-600/30 text-gallery-400 text-sm font-medium mb-8">
             <Zap className="w-3.5 h-3.5" />
-            AI-Powered Face Recognition
+            AI-Powered Photo Delivery
           </div>
 
           <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
@@ -107,13 +107,13 @@ export default function LandingPage() {
               {
                 step: "02",
                 title: "Upload a Selfie",
-                description: "Take or upload a selfie directly in the browser. AI extracts your face embedding.",
+                description: "Take or upload a selfie directly in the browser. Our AI instantly identifies your facial features.",
                 icon: "🤳",
               },
               {
                 step: "03",
                 title: "See Your Photos",
-                description: "Instantly see every photo of you from the event, powered by FAISS vector search.",
+                description: "Instantly see every photo of you from the event — delivered in seconds by our smart photo matching.",
                 icon: "✨",
               },
             ].map((item) => (
@@ -139,8 +139,8 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: <Users className="w-5 h-5" />, title: "Studio Workspaces", desc: "Team RBAC with owner, manager, and uploader roles." },
-              { icon: <Shield className="w-5 h-5" />, title: "Event Isolation", desc: "Each event has its own FAISS index. No cross-event data leakage." },
-              { icon: <Zap className="w-5 h-5" />, title: "Instant Search", desc: "Sub-second face search powered by FAISS vector similarity." },
+              { icon: <Shield className="w-5 h-5" />, title: "Event Isolation", desc: "Each event is completely isolated. No cross-event data leakage." },
+              { icon: <Zap className="w-5 h-5" />, title: "Instant Search", desc: "Sub-second photo search powered by intelligent photo matching." },
               { icon: <Camera className="w-5 h-5" />, title: "Bulk Upload", desc: "Upload thousands of photos. AI processes them asynchronously." },
               { icon: <Shield className="w-5 h-5" />, title: "QR Access Control", desc: "Time-limited QR codes for secure guest access." },
               { icon: <Zap className="w-5 h-5" />, title: "Cloudflare R2 Storage", desc: "Zero egress fee storage. Built for scale." },

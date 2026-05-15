@@ -116,7 +116,7 @@ export default function EventDetailPage() {
           </div>
           <h3 className="font-semibold text-white mb-1">Gallery</h3>
           <p className="text-sm text-gray-400">{event?.image_count || 0} photos processed.</p>
-          <p className="text-xs text-gray-600 mt-2">FAISS index v{event?.index_version || 0}</p>
+          <p className="text-xs text-gray-600 mt-2">Search index v{event?.index_version || 0}</p>
         </div>
       </div>
     </div>
