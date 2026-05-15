@@ -1,6 +1,6 @@
-# 🚀 Taskosaur Monorepo Project Rules
+# 🚀 Gallery Monorepo Project Rules
 
-Welcome to the Taskosaur project. This repository is structured as a monorepo containing everything from the frontend client to backend APIs and AI worker pipelines. 
+Welcome to the Gallery project. This repository is structured as a monorepo containing everything from the frontend client to backend APIs and AI worker pipelines. 
 
 To ensure a production-ready, maintainable, and highly robust codebase, **all contributors and AI assistants must strictly adhere to the following rules.**
 
@@ -34,11 +34,18 @@ To ensure a production-ready, maintainable, and highly robust codebase, **all co
 
 ### 3.1 Strict Access Rules
 - **No Direct `process.env`**: You are strictly forbidden from accessing `process.env` directly within any application code (whether it's `frontend-web`, `backend-api`, or `ai-worker`). 
-- **Validation**: Environment variables must be accessed through a centralized configuration file that validates and exports them safely (e.g., using a schema validator or a dedicated `config.ts` module).
+- **Validation**: Environment variables must be accessed through a centralized configuration file that validates and exports them safely (e.g., for `frontend-web` using a schema validator or a dedicated in the app `config.ts` files).
 
 ### 3.2 Single Source of Truth
 - **Root `.env` Configuration**: All environment variables for the entire project are managed from the root directory. 
 - **Adding Variables**: When a new environment variable is added, it **must** be added at the root level `.env` file. The root is the *only* source of truth for the entire monorepo. Never create separate `.env` files buried inside the individual app directories.
+
+---
+
+## 🐍 4. Python Environment
+
+### 4.1 Virtual Environments
+- **Mandatory `.venv` Usage**: All Python projects and microservices (e.g., `backend-api`, `ai-worker`) **must** use a local virtual environment (`.venv`). Never install Python dependencies globally or mix them across the host system. Ensure that `.venv` is activated before running or developing Python applications.
 
 ---
 *By contributing to this repository, you agree to follow these guidelines to maintain a robust, error-free, and scalable production environment.*
