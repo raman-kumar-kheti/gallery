@@ -21,7 +21,7 @@ class AuditLog(Base):
     # e.g. "event.created", "image.uploaded", "search.performed"
     resource_type: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     resource_id: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
-    metadata: Mapped[Optional[dict]] = mapped_column(JSONB, nullable=True)
+    meta_data: Mapped[Optional[dict]] = mapped_column("metadata", JSONB, nullable=True)
     ip_address: Mapped[Optional[str]] = mapped_column(String(50), nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False

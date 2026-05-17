@@ -24,6 +24,7 @@ redis==5.2.1
 
 # Payments
 razorpay==1.4.1
+setuptools<70          # Required for pkg_resources in Python 3.12+ (used by razorpay)
 
 # Validation
 pydantic==2.10.3

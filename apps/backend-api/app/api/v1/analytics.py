@@ -83,7 +83,7 @@ async def list_audit_logs(
             "action": log.action,
             "resource_type": log.resource_type,
             "resource_id": log.resource_id,
-            "metadata": log.metadata,
+            "metadata": log.meta_data,
             "created_at": log.created_at.isoformat(),
         }
         for log in logs
