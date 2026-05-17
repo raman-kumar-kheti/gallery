@@ -1,6 +1,8 @@
 import pathlib
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from pydantic import field_validator
+
 # Resolve absolute paths relative to this config file
 ROOT_DIR = pathlib.Path(__file__).resolve().parents[3]
 PROJECT_DIR = pathlib.Path(__file__).resolve().parents[1]
@@ -15,6 +17,13 @@ class WorkerSettings(BaseSettings):
 
     # Database (sync for Celery)
     database_url: str = "postgresql+psycopg2://gallery:gallery@localhost:5432/gallery"
+
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def convert_async_to_sync(cls, v: str) -> str:
+        if isinstance(v, str) and v.startswith("postgresql+asyncpg://"):
+            return v.replace("postgresql+asyncpg://", "postgresql+psycopg2://")
+        return v
 
     # Redis / Celery
     redis_url: str = "redis://localhost:6379/0"

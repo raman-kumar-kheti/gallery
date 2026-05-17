@@ -24,6 +24,22 @@ def get_db() -> Session:
 
 
 def _download_bytes(url: str) -> bytes:
+    if "events/" in url:
+        key = url[url.find("events/"):]
+        import boto3
+        from botocore.config import Config
+
+        client = boto3.client(
+            "s3",
+            endpoint_url=f"https://{settings.r2_account_id}.r2.cloudflarestorage.com",
+            aws_access_key_id=settings.r2_access_key_id,
+            aws_secret_access_key=settings.r2_secret_access_key,
+            config=Config(signature_version="s3v4"),
+            region_name="auto",
+        )
+        response = client.get_object(Bucket=settings.r2_bucket_name, Key=key)
+        return response["Body"].read()
+
     with urllib.request.urlopen(url) as response:
         return response.read()
 
@@ -172,7 +188,7 @@ def search_faces_task(self, session_id: str, event_id: str, selfie_url: str):
         if embedding is None:
             # No face found in selfie
             db.execute(
-                text("UPDATE search_sessions SET matched_image_ids = '[]'::jsonb WHERE id = :id"),
+                text("UPDATE search_sessions SET matched_image_ids = CAST('[]' AS JSONB) WHERE id = :id"),
                 {"id": session_id},
             )
             db.commit()
@@ -202,7 +218,7 @@ def search_faces_task(self, session_id: str, event_id: str, selfie_url: str):
         db.execute(
             text("""
                 UPDATE search_sessions
-                SET matched_image_ids = :ids::jsonb
+                SET matched_image_ids = CAST(:ids AS JSONB)
                 WHERE id = :id
             """),
             {"ids": json.dumps(image_ids), "id": session_id},
