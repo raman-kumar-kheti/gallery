@@ -1,8 +1,17 @@
+import pathlib
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Resolve absolute paths relative to this config file
+ROOT_DIR = pathlib.Path(__file__).resolve().parents[3]
+PROJECT_DIR = pathlib.Path(__file__).resolve().parents[1]
 
 
 class WorkerSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=(ROOT_DIR / ".env", PROJECT_DIR / ".env.local"),
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
 
     # Database (sync for Celery)
     database_url: str = "postgresql+psycopg2://gallery:gallery@localhost:5432/gallery"

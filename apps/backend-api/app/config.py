@@ -1,10 +1,19 @@
+import pathlib
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 from typing import Literal
 
+# Resolve absolute paths relative to this config file
+ROOT_DIR = pathlib.Path(__file__).resolve().parents[3]
+PROJECT_DIR = pathlib.Path(__file__).resolve().parents[1]
+
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=(ROOT_DIR / ".env", PROJECT_DIR / ".env.local"),
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
 
     # App
     app_name: str = "Gallery"
