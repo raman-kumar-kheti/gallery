@@ -1,0 +1,105 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": "."
+    },
+    {
+      "name": "Frontend Web",
+      "path": "apps/frontend-web"
+    },
+    {
+      "name": "Backend API",
+      "path": "apps/backend-api"
+    },
+    {
+      "name": "Ai Worker",
+      "path": "apps/ai-worker"
+    },
+    {
+      "name": "Shared",
+      "path": "shared"
+    }
+  ],
+  "settings": {
+    // 🐍 Python Environment & Linters
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.analysis.extraPaths": [
+      "${workspaceFolder}"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    
+    // ⚡ TypeScript & JavaScript
+    "typescript.tsdk": "apps/frontend-web/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "javascript.implicitProjectConfig.checkJs": false,
+
+    // 🧹 ESLint & Formatting
+    "eslint.workingDirectories": [
+      { "pattern": "apps/*/" }
+    ],
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+
+    // 📐 Language-Specific Settings
+    "[python]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[javascript]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[yaml]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+
+    // 📁 Search and File Exclusions
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/thumbs.db": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/__pycache__": true,
+      "**/.venv": true,
+      "**/dist": true,
+      "**/build": true
+    },
+
+    // 🔤 File Associations
+    "files.associations": {
+      ".env*": "properties"
+    }
+  }
+}
