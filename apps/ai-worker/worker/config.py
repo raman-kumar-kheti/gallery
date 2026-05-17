@@ -5,7 +5,7 @@ class WorkerSettings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # Database (sync for Celery)
-    database_url: str = "postgresql+psycopg2://gallery:gallery_secret@localhost:5432/gallery_db"
+    database_url: str = "postgresql+psycopg2://gallery:gallery@localhost:5432/gallery"
 
     # Redis / Celery
     redis_url: str = "redis://localhost:6379/0"

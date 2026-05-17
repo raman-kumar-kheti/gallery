@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     api_url: str = "http://localhost:8000"
 
     # Database
-    database_url: str = "postgresql+asyncpg://gallery:gallery_secret@localhost:5432/gallery_db"
+    database_url: str = "postgresql+asyncpg://gallery:gallery@localhost:5432/gallery"
 
     # Redis
     redis_url: str = "redis://localhost:6379/0"
